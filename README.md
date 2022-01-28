@@ -1,8 +1,8 @@
-#### Deployment:  <a href="">Github Pages</a>
+#### Deployment:  <a href="https://sergius92739.github.io/ahj-diploma_chaos_organizer_f/">Github Pages</a>
 
-#### Frontend:  <a href="">Repository</a>
+#### Frontend:  <a href="https://github.com/Sergius92739/ahj-diploma_chaos_organizer_f">Repository</a>
 
-#### Server:  <a href="">Heroku</a>
+#### Server:  <a href="https://ahj-chaos-organizer-sergius.herokuapp.com/">Heroku</a>
 
 ---
 
