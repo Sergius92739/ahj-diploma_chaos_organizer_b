@@ -8,6 +8,7 @@ const attachmentRouter = require('./attachments');
 const validate_mesRouter = require('./validate_mes');
 const emojiRouter = require('./emoji');
 const decryptionRouter = require('./decryptions');
+const phraseRouter = require('./phrase');
 
 const router = combineRouters(
   pingRouter,
@@ -18,6 +19,7 @@ const router = combineRouters(
   validate_mesRouter,
   emojiRouter,
   decryptionRouter,
+  phraseRouter,
 );
  
 module.exports = router;

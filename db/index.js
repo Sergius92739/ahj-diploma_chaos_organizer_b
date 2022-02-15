@@ -383,21 +383,36 @@ module.exports = class DataBase {
   }
 
   addTextMessage(userID, dialog, dialogID, message, encryption, password) {
+    const user = this.users.find((user) => user.id === userID);
+    const messageObj = {
+      time: DataBase.getDate(),
+      mesID: uuidv4(),
+      message,
+      userName: user.login,
+      userID,
+      encryption,
+      password,
+    }
     if (dialog === 'group') {
       const group = this.groups.find((group) => group.id === dialogID);
-      const user = this.users.find((user) => user.id === userID);
-      console.log('encrypt:', typeof encryption)
-      const messageObj = {
-        time: DataBase.getDate(),
-        mesID: uuidv4(),
-        message,
-        userName: user.login,
-        userID,
-        encryption,
-        password,
-      }
       group.messages.push(messageObj);
     }
+    if (dialog === 'personal') {
+      if (user.dialogues.some((dialog) => dialog.id === dialogID)) {
+        user.dialogues.find((dialog) => dialog.id === dialogID).messages.push(messageObj);
+      } else {
+        this.addDialog(user.dialogues, user.id);
+        user.dialogues.find((dialog) => dialog.id === dialogID).messages.push(messageObj);
+      }
+    }
+  }
+
+  addDialog(dialogues, userID) {
+    const dialog = {
+      id: userID,
+      messages: [],
+    }
+    dialogues.push(dialog);
   }
 
   addFileMessage(file, data) {
