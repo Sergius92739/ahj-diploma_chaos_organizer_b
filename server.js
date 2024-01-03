@@ -83,6 +83,6 @@ wsServer.on('connection', (ws) => {
 });
 
 // Прослушивание порта
-const port = process.env.PORT || 7070;
+const port = process.env.PORT || 8000;
 server.listen(port);
 console.log(`the server is started on port ${port}`);
