@@ -16,6 +16,7 @@ router.post('/login', async (ctx) => {
   } else {
     ctx.response.body = {
       success: false,
+      data: "Пользователь не найден"
     }
   }
 });
